@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal student portfolio of Faith Joy Besa.">
+  <title>Faith Joy Besa | Student Portfolio</title>
+  <style>
+    :root {
+      --pink: #e88eaa;
+      --pink-dark: #c85f83;
+      --pink-light: #fff0f5;
+      --ink: #30262b;
+      --muted: #786c72;
+      --white: #fff;
+      --line: #f1dce4;
+      --shadow: 0 18px 50px rgba(125, 66, 88, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #fffafb;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,250,251,.92);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: .08em; color: var(--pink-dark); }
+    .navlinks { display: flex; gap: 25px; font-size: .92rem; color: var(--muted); }
+    .navlinks a:hover { color: var(--pink-dark); }
+    .hero { padding: 95px 0 85px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 55px; }
+    .eyebrow { color: var(--pink-dark); text-transform: uppercase; letter-spacing: .18em; font-size: .76rem; font-weight: 800; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.3rem); line-height: 1.04; letter-spacing: -.055em; margin: 18px 0; }
+    h1 span { color: var(--pink-dark); }
+    .lead { max-width: 570px; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 21px; border-radius: 999px; font-weight: 700; border: 1px solid var(--pink); transition: .2s; }
+    .btn.primary { color: white; background: var(--pink-dark); border-color: var(--pink-dark); }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .portrait-wrap { background: var(--pink-light); border-radius: 48% 48% 24px 24px; padding: 18px; max-width: 360px; margin: auto; }
+    .portrait { min-height: 390px; border-radius: 48% 48% 18px 18px; display: grid; place-items: center; text-align: center; padding: 25px; background: linear-gradient(145deg,#f9dce6,#fff5f8); color: var(--pink-dark); }
+    .portrait strong { display: block; font-size: 5rem; line-height: 1; letter-spacing: -.08em; }
+    .portrait small { display: block; margin-top: 12px; letter-spacing: .16em; font-weight: 700; }
+    section { padding: 76px 0; }
+    .section-head { margin-bottom: 30px; }
+    h2 { font-size: clamp(2rem,4vw,3rem); letter-spacing: -.04em; line-height: 1.15; margin: 8px 0; }
+    .section-intro { color: var(--muted); max-width: 650px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 27px; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 12px; font-size: 1.2rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 18px; }
+    .fact { padding: 15px; background: var(--pink-light); border-radius: 14px; }
+    .fact small { display: block; color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+    .fact strong { display: block; margin-top: 4px; }
+    .skills { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .skill { padding: 20px; background: white; border: 1px solid var(--line); border-radius: 17px; font-weight: 700; }
+    .skill span { color: var(--pink-dark); margin-right: 9px; }
+    .goal { background: var(--pink-light); border-radius: 25px; padding: 35px; }
+    .contact { background: #3a2c33; color: white; border-radius: 28px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .contact p { color: #e8dce1; max-width: 520px; }
+    .contact .btn { background: white; color: var(--pink-dark); border-color: white; white-space: nowrap; }
+    footer { padding: 28px 0; color: var(--muted); font-size: .88rem; text-align: center; }
+    @media (max-width: 760px) {
+      .navlinks { gap: 13px; font-size: .82rem; }
+      .hero { padding: 65px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 38px; }
+      .portrait-wrap { max-width: 300px; }
+      .portrait { min-height: 300px; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 430px) {
+      .container { width: min(100% - 28px,1080px); }
+      .navlinks { gap: 9px; font-size: .75rem; }
+      .brand { font-size: .9rem; }
+      .skills, .facts { grid-template-columns: 1fr; }
+      .card, .contact { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">FJB.</a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#goals">Goals</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Student • Learner • Dreamer</div>
+          <h1>Hello, I'm<br><span>Faith Joy Besa.</span></h1>
+          <p class="lead">I am a college student who enjoys learning new things, connecting with people, and finding opportunities to grow. Welcome to my personal portfolio!</p>
+          <div class="actions">
+            <a class="btn primary" href="#about">Get to know me</a>
+            <a class="btn" href="#contact">Contact me</a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait" role="img" aria-label="Decorative initials FJB">
+            <div><strong>FJB</strong><small>FAITH JOY BESA</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">01 / About me</div>
+          <h2>A little about myself.</h2>
+          <p class="section-intro">I believe that every day brings a new opportunity to learn, improve, and become more confident in what I do.</p>
+        </div>
+        <div class="about-grid">
+          <article class="card">
+            <h3>Who I am</h3>
+            <p>My name is Faith Joy Besa. I am a student who values communication, teamwork, and personal growth. I enjoy meeting people, learning from experiences, and taking on new challenges.</p>
+          </article>
+          <article class="card">
+            <h3>Personal details</h3>
+            <div class="facts">
+              <div class="fact"><small>Age</small><strong>21 years old</strong></div>
+              <div class="fact"><small>Birthday</small><strong>October 31, 2004</strong></div>
+              <div class="fact"><small>Location</small><strong>Buenavista, Legazpi City</strong></div>
+              <div class="fact"><small>Education</small><strong>3rd Year College</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">02 / What I can do</div>
+          <h2>My skills & strengths.</h2>
+          <p class="section-intro">These are some of the skills I bring to my studies, responsibilities, and everyday activities.</p>
+        </div>
+        <div class="skills">
+          <div class="skill"><span>✦</span>Communication</div>
+          <div class="skill"><span>✦</span>Hands-on work</div>
+          <div class="skill"><span>✦</span>Time management</div>
+          <div class="skill"><span>✦</span>Multitasking</div>
+          <div class="skill"><span>✦</span>Socializing</div>
+          <div class="skill"><span>✦</span>Willingness to learn</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="container">
+        <div class="goal">
+          <div class="eyebrow">03 / Looking ahead</div>
+          <h2>Growing one step at a time.</h2>
+          <p class="section-intro">My goal is to finish my studies, continue developing my skills, gain meaningful experiences, and prepare myself for future opportunities. I know that success takes patience, effort, and a willingness to keep learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <div class="eyebrow">04 / Let's connect</div>
+            <h2>Thank you for visiting!</h2>
+            <p>I'm always open to meeting new people, sharing ideas, and learning from others. Feel free to reach out.</p>
+          </div>
+          <a class="btn" href="mailto:">Email me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 Faith Joy Besa · Personal Portfolio</div></footer>
+</body>
+</html>
